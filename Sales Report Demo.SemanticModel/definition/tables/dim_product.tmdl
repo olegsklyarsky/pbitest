@@ -1,0 +1,37 @@
+table dim_product
+	lineageTag: a5dadcb0-dfd3-42c5-972b-ccc374a87328
+
+	column 'Product ID'
+		formatString: 0
+		lineageTag: 4a4f89c1-9e93-45c5-8fd6-fe3571f7b204
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Product ID]
+
+		annotation SummarizationSetBy = User
+
+	column 'Product Name'
+		lineageTag: abbfb7aa-e299-4b74-a78e-22c3d23107ee
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Product Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_product = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				"Product ID", INT64,
+				"Product Name", STRING,
+				    {
+				        { 1, "Product A"},
+				        { 2, "Product B"},
+				        { 3, "Product C"},
+				        { 4, "Product D"}
+				    }
+				)
+
+	annotation PBI_Id = 78e8eb4186454faca55acb7315074010
+

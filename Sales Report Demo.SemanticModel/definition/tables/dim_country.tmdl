@@ -1,0 +1,38 @@
+table dim_country
+	lineageTag: 1af61d19-53fa-45eb-a844-8c2792763fb8
+
+	column 'Country ID'
+		formatString: 0
+		lineageTag: be1a503c-399e-4ee2-a3e2-7887738f6018
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Country ID]
+
+		annotation SummarizationSetBy = User
+
+	column 'Country Name'
+		lineageTag: 6c296a14-bfc1-40c3-913e-bc41ca9389d4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Country Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_country = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				"Country ID", INT64,
+				"Country Name", STRING,
+				    {
+				        { 1, "United States"},
+				        { 2, "Canada"},
+				        { 3, "France"},
+				        { 4, "Brazil"},
+				        { 5, "Germany"}
+				    }
+				)
+
+	annotation PBI_Id = a9c061f13ffc4cdd946b2863de291165
+

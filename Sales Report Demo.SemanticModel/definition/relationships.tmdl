@@ -1,0 +1,8 @@
+relationship b1c490ee-c6c7-2123-3a44-df22054b9465
+	fromColumn: fact_sales.'Product ID'
+	toColumn: dim_product.'Product ID'
+
+relationship a334e97a-44b3-4bb4-6fb1-0f4c8c38c50b
+	fromColumn: fact_sales.'Country ID'
+	toColumn: dim_country.'Country ID'
+

@@ -79,11 +79,11 @@
                       "Entity": "fact_sales"
                     }
                   },
-                  "Property": "Profit Margin %"
+                  "Property": "Profit Margin Percent"
                 }
               },
               "queryRef": "fact_sales.Profit Margin %",
-              "nativeQueryRef": "Profit Margin %"
+              "nativeQueryRef": "Profit Margin Percent"
             },
             {
               "field": {

@@ -11,14 +11,14 @@ table fact_sales
 
 		formatStringDefinition = FormatAmounts()
 
-	measure 'Profit Margin %' = DIVIDE([Profit Total],fact_sales[Sales Total])
+	measure 'Profit Margin Percent' = DIVIDE([Profit Total],fact_sales[Sales Total])
 		formatString: 0.0%;-0.0%;0.0%
 		lineageTag: ca139fdf-387d-46ff-ad42-f0967c84b784
 
 	measure 'Profit Margin Target Met?' =
 			
 			VAR MetTarget =
-			    [Profit Margin %] >= 0.20
+			    [Profit Margin Percent] >= 0.20
 			
 			VAR IconColor =
 			    IF( MetTarget, "#2E7D32", "#C62828" )

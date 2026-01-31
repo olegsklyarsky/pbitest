@@ -41,6 +41,12 @@ table fact_sales
 		lineageTag: 9ab0cfab-ca8c-4795-97e0-1bdaa556abe5
 		dataCategory: ImageUrl
 
+	measure 'Avg Product Sales' = fact_sales[Sales Total]/DISTINCTCOUNTNOBLANK(dim_product[Product ID])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2a9e56c3-19b4-465f-8531-d0e70453b7d0
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
 	column 'Sales Amount'
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: 890922b5-3514-489c-af10-b7f238986c83
